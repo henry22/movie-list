@@ -7,9 +7,8 @@
 
     axios.get(INDEX_URL)
         .then((response) => {
-            data.push(response.data.results)
+            data.push(...response.data.results)
             console.log(data);
-            console.log(data.length)
         })
         .catch((err) => console.log(err))
 })()
