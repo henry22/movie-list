@@ -9,7 +9,8 @@
     axios.get(INDEX_URL)
         .then((response) => {
             data.push(...response.data.results)
-            console.log(data);
+
+            displayDataList(data)
         })
         .catch((err) => console.log(err))
 
@@ -18,9 +19,13 @@
 
         data.forEach(function(item, index) {
             htmlContent += `
-                <div>s
-                    <img src="${POSTER_URL}${item.image}">
-                    <h6>${item.title}</h6>
+                <div class="col-sm-3">
+                    <div class="card mb-2">
+                        <img class="card-img-top" src="${POSTER_URL}${item.image}" alt="Card image cap">
+                        <div class="card-body movie-item-body">
+                            <h6 class="card-title">${item.title}</h6>
+                        </div>
+                    </div>
                 </div>
             `
         })
